@@ -6,7 +6,7 @@ import time
 import math
 import cv2
 from pathlib import Path
-
+from model import BirdCLEFModel
 import numpy as np
 import pandas as pd
 import librosa
