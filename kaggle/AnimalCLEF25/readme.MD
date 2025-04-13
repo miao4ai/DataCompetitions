@@ -1,0 +1,1 @@
+# This is the working folder for compeition AnimalCLEF
