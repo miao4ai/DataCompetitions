@@ -1,0 +1,9 @@
+num_classes: 180
+model_name: convnext_base
+image_size: 224
+batch_size: 32
+epochs: 10
+learning_rate: 5e-5
+train_csv: "train_metadata.csv"
+train_images_dir: "/kaggle/input/animalclef25-384x384/train"
+model_output_path: "best_model.pt"
