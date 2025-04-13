@@ -1,13 +1,20 @@
-import torch
-import torch.nn as nn
 import timm
+import torch.nn as nn
 
-class CLEFModel(nn.Module):
-    def __init__(self, model_name="tf_efficientnetv2_s", num_classes=182):
-        super().__init__()
-        self.model = timm.create_model(model_name, pretrained=True)
-        n_features = self.model.classifier.in_features
-        self.model.classifier = nn.Linear(n_features, num_classes)
+def get_model(model_name: str, num_classes: int):
+    model = timm.create_model(model_name, pretrained=True)
 
-    def forward(self, x):
-        return self.model(x)
+    # 自动替换分类头
+    if hasattr(model, 'classifier'):  # EfficientNetV2
+        in_features = model.classifier.in_features
+        model.classifier = nn.Linear(in_features, num_classes)
+    elif hasattr(model, 'head'):  # ConvNeXt, ViT, Swin
+        in_features = model.head.in_features
+        model.head = nn.Linear(in_features, num_classes)
+    elif hasattr(model, 'fc'):  # ResNet fallback
+        in_features = model.fc.in_features
+        model.fc = nn.Linear(in_features, num_classes)
+    else:
+        raise ValueError(f"Unknown classifier head for model {model_name}")
+    
+    return model

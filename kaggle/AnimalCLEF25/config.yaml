@@ -1,9 +1,16 @@
 num_classes: 180
-model_name: convnext_base
+#model_name: convnext_base           
+#model_name: convnext_large
+# model_name: convnext_xlarge
+# model_name: swin_base_patch4_window7_224
+# model_name: efficientnetv2_l
+model_name: vit_base_patch16_224
 image_size: 224
 batch_size: 32
 epochs: 10
 learning_rate: 5e-5
-train_csv: "train_metadata.csv"
-train_images_dir: "/kaggle/input/animalclef25-384x384/train"
-model_output_path: "best_model.pt"
+train_csv: "./animal-clef-2025/metadata.csv"
+train_images_dir: "./animal-clef-2025"
+model_output_path: "reid_classifier.pth"
+label_encoder_path: "label_encoder.pkl"
+
