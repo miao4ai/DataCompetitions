@@ -13,4 +13,11 @@ train_csv: "./animal-clef-2025/metadata.csv"
 train_images_dir: "./animal-clef-2025"
 model_output_path: "reid_classifier.pth"
 label_encoder_path: "label_encoder.pkl"
-
+early_stopping_patience: 5
+model_registry_dir: "./model_registry"
+ensemble_model_names:
+  - convnext_base
+  - efficientnetv2_l
+  - swin_base_patch4_window7_224
+ensemble_strategy: soft_voting
+model_registry_dir: ./model_registry
