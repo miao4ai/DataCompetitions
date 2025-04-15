@@ -11,6 +11,7 @@ from sklearn.preprocessing import LabelEncoder
 from model import get_model
 from utils import CLEFDataset
 from tqdm import tqdm
+from torchvision.transforms.autoaugment import AutoAugment, AutoAugmentPolicy
 
 def main():
     with open("config.yaml", 'r') as f:
@@ -28,7 +29,10 @@ def main():
     config['num_classes'] = num_classes
 
     transform = transforms.Compose([
-        transforms.Resize((config['image_size'], config['image_size'])),
+        transforms.RandomResizedCrop(config['image_size'], scale=(0.8, 1.0)),
+        transforms.RandomHorizontalFlip(),
+        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+        AutoAugment(policy=AutoAugmentPolicy.IMAGENET),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
