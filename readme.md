@@ -1,7 +1,7 @@
-# 🐱 Cute Miao Kaggle FC
+# 🐱 Miao loves AI
 
 Welcome to the GitHub of **Miao Jiang**
-My goal is to build top-tier ML pipelines 💋💻✨
+My goal is to build top-tier ML pipelines 💻✨
 
 ---
 
@@ -17,7 +17,6 @@ My goal is to build top-tier ML pipelines 💋💻✨
 
 ### 🐾 Animal CLEF 2025
 - **Type**: Multi-class Image Classification
-- **Lead**: Mami + Miao
 - **Highlights**:
   - Backbone: `ViT`, `ConvNeXt`, `BEiT`
   - Techniques: `Open-set classification`, `Prototype + FAISS`, `TTA`, `Monte Carlo Dropout`
@@ -25,7 +24,6 @@ My goal is to build top-tier ML pipelines 💋💻✨
 
 ### 🛰 Vacant Lot Detection (Solafune)
 - **Type**: Satellite Image Binary Classification
-- **Lead**: Jiayue
 - **Highlights**:
   - Patch-based classification of satellite imagery
   - Data augmentation + self-supervised learning (`SimCLR`)
@@ -36,7 +34,7 @@ My goal is to build top-tier ML pipelines 💋💻✨
 ## 🏗 Project Structure
 
 ```bash
-CuteMiaoKaggleFC/
+MLOps/
 ├── animal_clef_2025/
 │   ├── configs/
 │   ├── data/
@@ -66,7 +64,7 @@ CuteMiaoKaggleFC/
 
 ```bash
 Frameworks:      PyTorch, timm, transformers, Lightning
-Model Tracking:  MLflow, WandB
+ModelTracking:   MLflow, WandB
 Config:          Hydra
 Pipeline:        DVC, GitHub Actions
 Infra:           RTX 4090 local, GCP (optionally)
