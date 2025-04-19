@@ -16,11 +16,11 @@ label_encoder_path: "label_encoder.pkl"
 early_stopping_patience: 5
 model_registry_dir: "./model_registry"
 ensemble_model_names:
+#  - swinv2_base_window12to16_192to256_22kft1k
   - convnext_base
   - vit_base_patch32_224
   - vit_base_patch16_224_in21k
-  - beit_base_patch16_224
-  - swinv2_base_window12to16_192to256_22kft1k
-  - coatnet_0
+  - beit_base_patch16_224  
+ # - coatnet_0
 ensemble_strategy: soft_voting
 model_registry_dir: ./model_registry
